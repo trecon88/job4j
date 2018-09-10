@@ -36,4 +36,14 @@ public class Point {
         );
     }
 
+    /**
+     * Метод проверки совпадения координат.
+     * @param that Точка с которой необходимо сравнить координаты текущей точки.
+     * @return Истина/Ложь
+     *
+     */
+    public boolean eqCoord(Point that) {
+        return (this.x == that.x) && (this.y == that.y);
+    }
+
 }

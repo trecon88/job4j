@@ -2,6 +2,7 @@ package ru.job4j.condition;
 
 import org.junit.Test;
 
+import static org.hamcrest.core.Is.is;
 import static org.hamcrest.number.IsCloseTo.closeTo;
 import static org.junit.Assert.assertThat;
 
@@ -19,6 +20,21 @@ public class PointTest {
         double expected = 5.0D;
 
         assertThat(result, closeTo(expected, 0.1));
+    }
+
+    @Test
+    public void whenThisCoordEqThatCoordThenTrue() {
+        int x1 = 0;
+        int y1 = 0;
+        Point firstPoint = new Point(x1, y1);
+        int x2 = 0;
+        int y2 = 0;
+        Point secondPoint = new Point(x2, y2);
+
+        boolean result = firstPoint.eqCoord(secondPoint);
+        boolean expected = true;
+
+        assertThat(result, is(expected));
     }
 
 }
