@@ -4,12 +4,15 @@ package ru.job4j.loop;
  * Класс для подсчета факториала числа.
  */
 public class Factorial {
-    public int calc(int n) {
-        int result;
-        if (n <= 1) {
-            result = 1;
-        } else {
-            result = n * calc(n - 1);
+    /**
+     * Метод вычисляет факториал числа.
+     * @param number Число.
+     * @return Факториал.
+     */
+    public int calc(int number) {
+        int result = 1;
+        for (int i = 1; i <= number; i++) {
+            result *= i;
         }
         return result;
     }
