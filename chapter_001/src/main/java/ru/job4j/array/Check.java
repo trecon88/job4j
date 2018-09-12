@@ -11,10 +11,9 @@ public class Check {
      */
     public boolean mono(boolean[] data) {
         //if (data.length == 0) return false;
-        boolean temp = data[0];
         boolean result = true;
         for (int i = 1; i < data.length; i++) {
-            if (data[i] != temp) {
+            if (data[i] != data[0]) {
                 result = false;
                 break;
             }
