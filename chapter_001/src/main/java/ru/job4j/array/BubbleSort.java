@@ -13,14 +13,11 @@ public class BubbleSort {
         int length = array.length - 1;
         while (length > 0) {
             for (int i = 0; i < length; i++) {
-                if (array[i] <= array[i + 1]) {
-                    if (i == length - 1) {
-                        length--;
-                    }
-                } else {
+                if (array[i] > array[i + 1]) {
                     swapElements(array, i, i + 1);
                 }
             }
+            length--;
         }
         return array;
     }
@@ -31,12 +28,9 @@ public class BubbleSort {
      * @param second Индекс второго элемента.
      */
     private void swapElements(int[] array, int first, int second) {
-        int length = array.length;
         int temp;
-        if ((first >= 0 && first < length) && (second >= 0 && second < length)) {
-            temp = array[first];
-            array[first] = array[second];
-            array[second] = temp;
-        }
+        temp = array[first];
+        array[first] = array[second];
+        array[second] = temp;
     }
 }
