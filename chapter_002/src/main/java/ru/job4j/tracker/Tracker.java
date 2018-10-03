@@ -37,25 +37,32 @@ public class Tracker {
      * @param id Идентификатор заявки.
      * @param item Заявка.
      */
-    public void replace(String id, Item item) {
+    public boolean replace(String id, Item item) {
+        boolean result = false;
         int itemIndex = this.findIndexById(id);
         if (itemIndex != -1) {
             item.setId(this.items[itemIndex].getId());
+            item.setCreated(this.items[itemIndex].getCreated());
             this.items[itemIndex] = item;
+            result = true;
         }
+        return result;
     }
 
     /**
      * Метод реализующий удаление заявки по её id.
      * @param id Идентификатор заявки.
      */
-    public void delete(String id) {
+    public boolean delete(String id) {
+        boolean result = false;
         int itemIndex = this.findIndexById(id);
         if (itemIndex != -1) {
             System.arraycopy(items, itemIndex + 1, items, itemIndex, this.position - itemIndex - 1);
             this.items[position - 1] = null;
             this.position--;
+            result = true;
         }
+        return result;
     }
 
     /**

@@ -27,7 +27,7 @@ public class StartUITest {
     public void whenNotUpdatedThenTracker() {
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("test name", "desc"));
-        Input input = new StubInput(new String[]{"2", "someId", "6"});
+        Input input = new StubInput(new String[]{"2", "someId", "testName", "testDesc", "6"});
         new StartUI(input, tracker).init();
         assertThat(tracker.findById(item.getId()).getName(), is("test name"));
     }

@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import java.util.Date;
+
 /**
  * Класс заявка.
  */
@@ -56,5 +58,15 @@ public class Item {
     }
     public void setDesc(String desc) {
         this.desc = desc;
+    }
+    public void setCreated(long created) {
+        this.created = created;
+    }
+
+    @Override
+    public String toString() {
+        String title = "Id \t Имя \t Дата создания \t Описание";
+        return String.format("%s\r\n%s\t%s\t%s\t%s", title, this.getId(), this.getName(), new Date(this.getCreated()).toString(), this.getDesc());
+        //return super.toString();
     }
 }
