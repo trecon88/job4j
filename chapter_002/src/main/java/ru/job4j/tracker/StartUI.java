@@ -129,7 +129,7 @@ public class StartUI {
         Item[] allItems = this.tracker.findAll();
         if (allItems != null) {
             System.out.println("------------ Список всех заявок --------------");
-
+            System.out.println("Id \t Имя \t Дата создания \t Описание");
             for (Item item : allItems) {
                 System.out.println(item);
             }
@@ -165,6 +165,7 @@ public class StartUI {
         String id = this.input.ask("Введите ID заявки : ");
         Item item = this.tracker.findById(id);
         if (item != null) {
+            System.out.println("Id \t Имя \t Дата создания \t Описание");
             System.out.println(item);
             System.out.println("------------ Конец вывода --------------");
         } else {
