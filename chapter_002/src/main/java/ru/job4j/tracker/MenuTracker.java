@@ -33,8 +33,13 @@ public class MenuTracker {
      *
      * @return длину массива
      */
-    public int getActionsLentgh() {
-        return this.actions.size();
+    public int[] getLentgh() {
+        int length = this.actions.size();
+        int[] result = new int[length];
+        for (int i = 0; i < length; i++) {
+            result[i] = i;
+        }
+        return result;
     }
 
     /**

@@ -10,4 +10,6 @@ public interface Input {
      * @return Ответ.
      */
     String ask(String question);
+
+    int ask(String question, int[] range);
 }

@@ -216,4 +216,21 @@ public class StartUITest {
                 )
         );
     }
+
+    /**
+    @Test
+    public void whenEnterNotNumberInMenu() {
+        Tracker tracker = new Tracker();
+        Input input = new StubInput(new String[]{"aaa", "1", "y"});
+        new StartUI(input, tracker).init();
+        assertThat(
+                new String(out.toByteArray()),
+                is(
+                        new StringBuilder()
+                        .append("aaa")
+                        .toString()
+                )
+        );
+    }
+     */
 }
