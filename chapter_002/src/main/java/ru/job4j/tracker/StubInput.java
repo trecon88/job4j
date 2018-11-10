@@ -35,11 +35,18 @@ public class StubInput implements Input {
         return this.value[this.position++];
     }
 
-    /**
-     * Не понятно как создать тест на ввод неправильного значения
-     *
-     */
     public int ask(String question, int[] range) {
-        return Integer.valueOf(this.value[this.position++]);
+      int key = Integer.valueOf(this.ask(question));
+        boolean exist = false;
+        for (int value : range) {
+            if (value == key) {
+                exist = true;
+                break;
+            }
+        }
+        if (!exist) {
+            throw new MenuOutException("Out of menu range");
+        }
+        return key;
     }
 }

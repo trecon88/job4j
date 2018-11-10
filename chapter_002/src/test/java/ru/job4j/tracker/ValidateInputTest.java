@@ -45,7 +45,7 @@ public class ValidateInputTest {
     @Test
     public void whenOutOfRange() {
         ValidateInput input = new ValidateInput(
-                new StubInput(new String[]{"3", "1"})
+                new StubInput(new String[]{"-1", "1"})
         );
         input.ask("Enter", new int[]{1});
         assertThat(

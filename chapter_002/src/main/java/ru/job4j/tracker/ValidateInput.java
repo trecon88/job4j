@@ -1,6 +1,6 @@
 package ru.job4j.tracker;
 
-public class ValidateInput extends ConsoleInput {
+public class ValidateInput implements Input {
 
     private final Input input;
 
@@ -17,7 +17,7 @@ public class ValidateInput extends ConsoleInput {
         int result = -1;
         do {
             try {
-                result = super.ask(question, range);
+                result = this.input.ask(question, range);
                 invalid = false;
             } catch (MenuOutException moe) {
                 System.out.println("Please select key from menu.");
