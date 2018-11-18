@@ -1,9 +1,8 @@
 package ru.job4j.tracker;
 
-public class FindItemById implements UserAction {
-    @Override
-    public int key() {
-        return StartUI.FIND_BY_ID;
+public class FindItemById extends BaseAction {
+    public FindItemById(final int key, final String name) {
+        super(key, name);
     }
 
     @Override
@@ -18,10 +17,5 @@ public class FindItemById implements UserAction {
         } else {
             System.out.println("------------ Заявка с Id : " + id + " не найдена --------------");
         }
-    }
-
-    @Override
-    public String info() {
-        return "Find item by Id.";
     }
 }
