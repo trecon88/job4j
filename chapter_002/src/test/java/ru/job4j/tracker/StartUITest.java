@@ -15,7 +15,7 @@ public class StartUITest {
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
     private final String ls = System.lineSeparator();
     private final String menu = String.format(
-            "0. Add new Item.%n1. Show all items.%n2. Edit item.%n3. Delete item.%n4. Find item by Id.%n5. Find items by name.%n"
+            "0 : Add new Item.%n1 : Show all items.%n2 : Edit item.%n3 : Delete item.%n4 : Find item by Id.%n5 : Find items by name.%n"
     );
     private final String title = String.format(
             "Id \t Имя \t Дата создания \t Описание%n"
@@ -217,20 +217,41 @@ public class StartUITest {
         );
     }
 
-    /**
     @Test
-    public void whenEnterNotNumberInMenu() {
+    public void whenNumberOutOfRangeInMenu() {
         Tracker tracker = new Tracker();
-        Input input = new StubInput(new String[]{"aaa", "1", "y"});
+        Input input = new StubInput(new String[]{"-1", "1", "y"});
         new StartUI(input, tracker).init();
         assertThat(
                 new String(out.toByteArray()),
                 is(
                         new StringBuilder()
-                        .append("aaa")
-                        .toString()
+                                .append(this.menu)
+                                .append("Please select key from menu.")
+                                .append(this.ls)
+                                .append("------------ Список заявок пуст --------------")
+                                .append(this.ls)
+                                .toString()
                 )
         );
     }
-     */
+
+    @Test
+    public void whenEnterNotNumberInMenu() {
+        Tracker tracker = new Tracker();
+        Input input = new StubInput(new String[]{"text", "1", "y"});
+        new StartUI(input, tracker).init();
+        assertThat(
+                new String(out.toByteArray()),
+                is(
+                        new StringBuilder()
+                                .append(this.menu)
+                                .append("Please enter valid data.")
+                                .append(this.ls)
+                                .append("------------ Список заявок пуст --------------")
+                                .append(this.ls)
+                                .toString()
+                )
+        );
+    }
 }
